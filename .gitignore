@@ -1,0 +1,5 @@
+artifacts/
+*.h5
+*.keras
+*.zip
+.ipynb_checkpoints/
