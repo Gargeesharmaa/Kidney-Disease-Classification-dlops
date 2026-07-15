@@ -20,8 +20,8 @@ class PrepareBaseModelConfig:
     params_weights: str
     params_classes: int
 
-    @dataclass(frozen=True)
-    class TrainingConfig:
+@dataclass(frozen=True)
+class TrainingConfig:
         root_dir: Path
         trained_model_path: Path
         updated_base_model_path: Path

@@ -1,1 +1,217 @@
 [2026-07-12 23:53:35,364: INFO: main: welcome to the cnn Classication prediction model]
+[2026-07-15 15:04:30,589: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-15 15:04:30,591: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 15:04:30,593: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 15:04:30,594: INFO: common: created directory at: artifacts]
+[2026-07-15 15:04:30,594: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-15 15:04:30,595: INFO: data_ingestion: downloading data from https://drive.google.com/file/d/1C9z19EFJTPmGfa_GG5B_WGwIbvnvkO6G/view?usp=sharing into file artifacts/data_ingestion/archive.zip]
+[2026-07-15 15:16:10,426: INFO: stage1_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-15 15:16:10,433: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 15:16:10,433: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 15:16:10,433: INFO: common: created directory at: artifacts]
+[2026-07-15 15:16:10,433: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-15 15:16:10,433: INFO: data_ingestion: downloading data from https://drive.google.com/file/d/1C9z19EFJTPmGfa_GG5B_WGwIbvnvkO6G/view?usp=sharing into file artifacts/data_ingestion/archive.zip]
+[2026-07-15 16:15:02,569: ERROR: stage1_data_ingestion: ('Connection broken: IncompleteRead(105703433 bytes read, 1522215875 more expected)', IncompleteRead(105703433 bytes read, 1522215875 more expected))]
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\urllib3\response.py", line 905, in _error_catcher
+    yield
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\urllib3\response.py", line 1043, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(105703433 bytes read, 1522215875 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\requests\models.py", line 937, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\urllib3\response.py", line 1267, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\urllib3\response.py", line 1155, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\urllib3\response.py", line 1021, in _raw_read
+    with self._error_catcher():
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\urllib3\response.py", line 925, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(105703433 bytes read, 1522215875 more expected)', IncompleteRead(105703433 bytes read, 1522215875 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\pipeline\stage1_data_ingestion.py", line 25, in <module>
+    obj.main()
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\pipeline\stage1_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\components\data_ingestion.py", line 27, in download_file
+    raise e
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\components\data_ingestion.py", line 23, in download_file
+    gdown.download(prefix+file_id, zip_download_dir)
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\gdown\download.py", line 421, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\requests\models.py", line 939, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(105703433 bytes read, 1522215875 more expected)', IncompleteRead(105703433 bytes read, 1522215875 more expected))
+[2026-07-15 16:15:18,569: INFO: stage1_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-15 16:15:18,571: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 16:15:18,572: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 16:15:18,573: INFO: common: created directory at: artifacts]
+[2026-07-15 16:15:18,573: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-15 16:15:18,573: INFO: data_ingestion: downloading data from https://drive.google.com/file/d/1C9z19EFJTPmGfa_GG5B_WGwIbvnvkO6G/view?usp=sharing into file artifacts/data_ingestion/archive.zip]
+[2026-07-15 16:49:33,551: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1C9z19EFJTPmGfa_GG5B_WGwIbvnvkO6G/view?usp=sharing into file artifacts/data_ingestion/archive.zip]
+[2026-07-15 16:49:58,392: INFO: stage1_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-15 16:51:22,472: INFO: stage2_prepare_base_model: ******************]
+[2026-07-15 16:51:22,472: INFO: stage2_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-15 16:51:22,488: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 16:51:22,489: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 16:51:22,489: INFO: common: created directory at: artifacts]
+[2026-07-15 16:51:22,489: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-15 16:51:22,492: ERROR: stage2_prepare_base_model: "'ConfigBox' object has no attribute 'learning_rate'"]
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 503, in __getitem__
+    return super().__getitem__(item)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'LEARNING_RATE'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 536, in __getattr__
+    value = self.__getitem__(item, _ignore_default=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 524, in __getitem__
+    raise BoxKeyError(str(err)) from _exception_cause(err)
+box.exceptions.BoxKeyError: "'LEARNING_RATE'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 538, in __getattr__
+    value = object.__getattribute__(self, item)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ConfigBox' object has no attribute 'LEARNING_RATE'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\config_box.py", line 28, in __getattr__
+    return super().__getattr__(item)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 552, in __getattr__
+    raise BoxKeyError(str(err)) from _exception_cause(err)
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'LEARNING_RATE'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 503, in __getitem__
+    return super().__getitem__(item)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'learning_rate'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 536, in __getattr__
+    value = self.__getitem__(item, _ignore_default=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 524, in __getitem__
+    raise BoxKeyError(str(err)) from _exception_cause(err)
+box.exceptions.BoxKeyError: "'learning_rate'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 538, in __getattr__
+    value = object.__getattribute__(self, item)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ConfigBox' object has no attribute 'learning_rate'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\pipeline\stage2_prepare_base_model.py", line 23, in <module>
+    obj.main()
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\pipeline\stage2_prepare_base_model.py", line 13, in main
+    prepare_base_model_config = config.get_prepare_base_model_config()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\config\configuration.py", line 51, in get_prepare_base_model_config
+    params_learning_rate=self.params.LEARNING_RATE,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\config_box.py", line 30, in __getattr__
+    return super().__getattr__(item.lower())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\box\box.py", line 552, in __getattr__
+    raise BoxKeyError(str(err)) from _exception_cause(err)
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'learning_rate'"
+[2026-07-15 16:54:33,777: INFO: stage2_prepare_base_model: ******************]
+[2026-07-15 16:54:33,778: INFO: stage2_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-15 16:54:33,780: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 16:54:33,781: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 16:54:33,782: INFO: common: created directory at: artifacts]
+[2026-07-15 16:54:33,782: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-15 16:54:34,267: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-15 16:54:34,384: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-15 16:54:34,415: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-15 16:54:34,515: INFO: stage2_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-07-15 16:55:00,093: INFO: stage3_model_training: *******************]
+[2026-07-15 16:55:00,094: INFO: stage3_model_training: >>>>>> stage Training started <<<<<<]
+[2026-07-15 16:55:00,095: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 16:55:00,097: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 16:55:00,097: INFO: common: created directory at: artifacts]
+[2026-07-15 16:55:00,098: INFO: common: created directory at: artifacts\training]
+[2026-07-15 16:55:00,376: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-15 16:55:02,876: ERROR: stage3_model_training: Arguments `target` and `output` must have the same shape. Received: target.shape=(None, 1), output.shape=(None, 4)]
+Traceback (most recent call last):
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\pipeline\stage3_model_training.py", line 30, in <module>
+    obj.main()
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\pipeline\stage3_model_training.py", line 21, in main
+    training.train()
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\src\Kidney_Disease_Classification\components\model_training.py", line 84, in train
+    self.model.fit(
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\welcome\Projects\Kidney-Disease-Classification-DLOPS\cnnClassifier\Lib\site-packages\keras\src\backend\tensorflow\nn.py", line 1354, in categorical_crossentropy
+    raise ValueError(
+ValueError: Arguments `target` and `output` must have the same shape. Received: target.shape=(None, 1), output.shape=(None, 4)
+[2026-07-15 17:01:40,543: INFO: stage1_data_ingestion: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-07-15 17:01:40,545: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 17:01:40,547: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 17:01:40,548: INFO: common: created directory at: artifacts]
+[2026-07-15 17:01:40,548: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-07-15 17:01:40,549: INFO: data_ingestion: downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/archive.zip]
+[2026-07-15 17:03:17,748: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/archive.zip]
+[2026-07-15 17:03:18,547: INFO: stage1_data_ingestion: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-07-15 17:03:30,103: INFO: stage2_prepare_base_model: ******************]
+[2026-07-15 17:03:30,104: INFO: stage2_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2026-07-15 17:03:30,105: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 17:03:30,107: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 17:03:30,107: INFO: common: created directory at: artifacts]
+[2026-07-15 17:03:30,108: INFO: common: created directory at: artifacts/prepare_base_model]
+[2026-07-15 17:03:30,456: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-15 17:03:30,558: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-15 17:03:30,585: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-15 17:03:30,682: INFO: stage2_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2026-07-15 17:03:41,758: INFO: stage3_model_training: *******************]
+[2026-07-15 17:03:41,759: INFO: stage3_model_training: >>>>>> stage Training started <<<<<<]
+[2026-07-15 17:03:41,761: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2026-07-15 17:03:41,763: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-07-15 17:03:41,763: INFO: common: created directory at: artifacts]
+[2026-07-15 17:03:41,764: INFO: common: created directory at: artifacts\training]
+[2026-07-15 17:03:42,042: WARNING: config: TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.]
+[2026-07-15 17:11:06,426: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-07-15 17:11:06,805: INFO: stage3_model_training: >>>>>> stage Training completed <<<<<<
+
+x==========x]
