@@ -3,3 +3,5 @@ artifacts/
 *.keras
 *.zip
 .ipynb_checkpoints/
+__pycache__/
+cnnClassifier/
