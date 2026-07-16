@@ -1,0 +1,49 @@
+name: Kidney Disease Classification CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the repository code
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # Step 2: Set up Python 3.8
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.8'
+        cache: 'pip' # Automatically caches pip dependencies to make subsequent runs blazing fast
+
+    # Step 3: Install dependencies
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Step 4: Lint code with flake8 (Checks for syntax errors and styling issues)
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    # Step 5: Self-test imports and configuration pathing
+    - name: Validate Python Modules
+      run: |
+        # Ensures our custom source path registers cleanly on the runner
+        python -c "import sys; sys.path.append('src'); import Kidney_Disease_Classification"
+
+    # Step 6: Run tests (Uncomment if you have a tests directory)
+    # - name: Run Unit Tests
+    #   run: |
+    #     pytest
