@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 from Kidney_Disease_Classification.config.configuration import ConfigurationManager
 from Kidney_Disease_Classification.components.data_ingestion import DataIngestion
 from Kidney_Disease_Classification import logger

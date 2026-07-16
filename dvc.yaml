@@ -1,0 +1,37 @@
+stages:
+  data_ingestion:
+    cmd: python src/Kidney_Disease_Classification/pipeline/stage1_data_ingestion.py
+    deps:
+      - src/Kidney_Disease_Classification/pipeline/stage1_data_ingestion.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_ingestion/kidney-ct-scan-image
+
+  prepare_base_model:
+    cmd: python src/Kidney_Disease_Classification/pipeline/stage02_prepare_base_model.py
+    deps:
+      - src/Kidney_Disease_Classification/pipeline/stage02_prepare_base_model.py
+      - config/config.yaml
+    params:
+      - IMAGE_SIZE
+      - INCLUDE_TOP
+      - CLASSES
+      - WEIGHTS
+      - LR
+    outs:
+      - artifacts/prepare_base_model
+
+  training:
+    cmd: python src/Kidney_Disease_Classification/pipeline/stage3_model_training.py
+    deps:
+      - src/Kidney_Disease_Classification/pipeline/stage3_model_training.py
+      - config/config.yaml
+      - artifacts/data_ingestion/kidney-ct-scan-image
+      - artifacts/prepare_base_model
+    params:
+      - IMAGE_SIZE
+      - EPOCHS
+      - BATCH_SIZE
+      - AUGMENTATION
+    outs:
+      - artifacts/training/model.h5
