@@ -156,9 +156,5 @@ docker run -p 8000:8000 -p 8501:8501 kidney-disease-classifier
 Developed with care by a software developer focused on robust machine learning systems.
 
 Email: gargeesharma52@gmail.com
-
-LinkedIn: https://www.linkedin.com/in/gargee-sharma-596242338
+* **LinkedIn**: https://www.linkedin.com/in/gargee-sharma6548
 ---
-
-## 📞 Contact
-* **LinkedIn**: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
