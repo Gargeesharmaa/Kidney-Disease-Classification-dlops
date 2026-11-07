@@ -25,7 +25,7 @@ This pipeline is engineered to solve the classic "it works on my machine" proble
 
 ---
 
-## 🗺️ Pipeline Workflow
+## Pipeline Workflow
 
 ```text
 [ Raw Data Source ]
